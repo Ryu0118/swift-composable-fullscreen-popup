@@ -1,2 +1,2 @@
-# swift-composable-fullscreen-popup
-A library optimized for Composable Architecture in SwiftUI, capable of displaying popups above the NavigationBar
+# ComposableFullscreenPopup
+A library optimized for Composable Architecture, enabling easy presentation of customizable popups above the NavigationBar.
