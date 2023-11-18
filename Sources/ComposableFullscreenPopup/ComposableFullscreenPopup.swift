@@ -8,7 +8,7 @@ public extension View {
     /// - Note: The `duration` parameter must be greater than the `duration` of the `animation`.
     ///
     /// - Parameters:
-    ///   - isPresented: A binding to a Boolean value that determines whether to present the popup.
+    ///   - store: A store that is focused on PresentationState and PresentationAction for a modal. When store‘s state is non-nil, the system passes a store of unwrapped State and Action to the modifier’s closure. You use this store to power the content in a popup you create that the system displays to the user. If store’s state is nil-ed out, the system dismisses the currently displayed popup.
     ///   - nanoseconds: The duration of the popup animation in nanoseconds. Default is 350,000,000 nanoseconds.
     ///                  Ensure this duration is longer than the animation's duration.
     ///   - animation: The animation to use when presenting the popup. Default is a spring animation.
@@ -40,7 +40,7 @@ public extension View {
     /// - Note: The `duration` parameter must be greater than the `duration` of the `animation`.
     ///
     /// - Parameters:
-    ///   - isPresented: A binding to a Boolean value that determines whether to present the popup.
+    ///   - store: A store that is focused on PresentationState and PresentationAction for a modal. When store‘s state is non-nil, the system passes a store of unwrapped State and Action to the modifier’s closure. You use this store to power the content in a popup you create that the system displays to the user. If store’s state is nil-ed out, the system dismisses the currently displayed popup.
     ///   - duration: The duration of the popup animation. Default is 0.35 seconds.
     ///               Ensure this duration is longer than the animation's duration.
     ///   - animation: The animation to use when presenting the popup. Default is a spring animation.
