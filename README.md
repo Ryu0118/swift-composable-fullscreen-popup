@@ -9,3 +9,42 @@ Our solution leverages the fullscreenCover modifier, allowing custom alerts to b
 |  ZStack or overlay  |  This Library  |
 | ---- | ---- |
 |  <img src="https://github.com/Ryu0118/swift-fullscreen-popup/assets/87907656/9756e921-ba9f-4190-8cb8-0b3b7e1f16a8" width="200">  |  <img src="https://github.com/Ryu0118/swift-fullscreen-popup/assets/87907656/1c1b9478-81e5-491c-86d1-e52e2c8b7fbd" width="200">  |
+
+## Usage
+```Swift
+import SwiftUI
+import ComposableArchitecture
+import ComposableFullscreenPopup
+
+@Reducer
+public struct MyReducer: Reducer {
+    public struct State: Equatable {
+        @PresentationState var popup: PopupReducer.State?
+        public init() {}
+    }
+
+    public enum Action {
+        case popup(PresentationAction<PopupReducer.Action>)
+    }
+
+    public var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            ...
+        }
+        .ifLet(\.$popup, action: \.popup) {
+            PopupReducer()
+        }
+    }
+}
+
+public struct MyView: View {
+    let store: StoreOf<MyReducer>
+    ...
+    public var body: some View {
+        ...
+        .popup(store.scope(state: \.$popup, action: { .popup($0) })) { store in
+            PopupView(store: store)
+        }
+    }
+}
+```
